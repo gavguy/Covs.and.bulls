@@ -3,6 +3,7 @@ package cab_gav;
 
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,21 +22,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Pane root = new FlowPane()    //drug za druzkoj       ///sdelali okoshko
-        Pane root = new VBox();                                     //kazdij s novij stroki
 
-//        Button btn = new Button("Hello!");                  /// sozdali knopku
-        Label lbl = new Label("^>");
-        TextField txt = new TextField();                    //polje dlja voda dobavleno
-
-        lbl.textProperty().bind(Bindings.concat("HellO!, ", txt.textProperty(), "1"));
-
-//        btn.setOnAction(e -> {
-//            lbl.setText("Hello, " + txt.getText() + "1");
-//        }); //pri
-
-
-        root.getChildren().addAll( lbl, txt);                             //u rootu dobavili knopku
+        Pane root = FXMLLoader.load(
+                getClass().getResource("/cab_gav/main.fxml"));                                   //kazdij s novij stroki
 
         Scene scene = new Scene(root, 500, 300);
         primaryStage.setTitle("Bulls and Covs");
