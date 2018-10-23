@@ -6,29 +6,42 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            xmlns:fx="cab_gav.mainController"
             prefHeight="600.0" prefWidth="600.0">
 
 
     <top>
         <HBox>
-            <Spinner initialValue="5" max="9" min="0" prefWidth="70"/>
-            <Spinner initialValue="5" max="9" min="0" prefWidth="70"/>
-            <Spinner initialValue="5" max="9" min="0" prefWidth="70"/>
-            <Spinner initialValue="5" max="9" min="0" prefWidth="70"/>
+            <Spinner fx:id="num1" initialValue="5" max="9" min="0" prefWidth="70"/>
+            <Spinner fx:id="num2" initialValue="5" max="9" min="0" prefWidth="70"/>
+            <Spinner fx:id="num3" initialValue="5" max="9" min="0" prefWidth="70"/>
+            <Spinner fx:id="num4" initialValue="5" max="9" min="0" prefWidth="70"/>
 
-            <Button text="go"/>
+            <Button text="go" onAction="go"/>
 
         </HBox>
     </top>
 
     <center>
-        <TableView>
+        <TableView fx:id="turns">
             <columns>
-                <TableColumn text="turn $"/>
-                <TableColumn text="Guess"/>
-                <TableColumn text="Bulls $"/>
+                <TableColumn text="turn">
+                <cellValueFactory>
+                <PropertyValueFactory property="guess"/>
+                <cellValueFactory/>
+
+                <TableColumn text="Guess">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="guess"/>
+                    <cellValueFactory/>
+                </TableColumn>
+                <TableColumn text="Bulls>
+                 <cellValueFactory>
+                        <PropertyValueFactory property="guess"/>
+                    <cellValueFactory/>
                 <TableColumn text="Covs $"/>
             </columns>
         </TableView>
